@@ -16,6 +16,10 @@ public class CharacterMovement : MonoBehaviour
       [SerializeField] private UnityEvent playerStartMoving;
       [SerializeField] private UnityEvent playerStopMoving;
 
+    public void Awake(){
+      if(rb == null) rb = gameObject.GetComponent<Rigidbody>();
+    }
+
     // Move Playerr scripts
     public void MovePlayer(Vector3 input){
       rb.velocity = input * speed * Time.deltaTime;
@@ -58,4 +62,13 @@ public class CharacterMovement : MonoBehaviour
         }
       }
     }
+
+    public Vector3 GetDirectionBetweenToObjects(GameObject object1, GameObject object2){
+      Vector3 returnValue = object1.transform.position - object2.transform.position;
+      returnValue = Vector3.Normalize(returnValue);
+
+      return returnValue;
+    }
+
+
 }
