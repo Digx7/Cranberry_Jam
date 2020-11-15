@@ -4766,8 +4766,8 @@ GameObject:
   - component: {fileID: 5909969331560579014}
   - component: {fileID: 4127031528973155636}
   m_Layer: 0
-  m_Name: Enemy 02 Spawn Sparks (1)
-  m_TagString: Untagged
+  m_Name: Enemy 02 Spawn Sparks
+  m_TagString: Enemy Spawning
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
