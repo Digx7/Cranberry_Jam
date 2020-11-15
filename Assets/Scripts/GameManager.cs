@@ -69,7 +69,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateUI(){
       _uiManager.UpdateLives(lives);
-      _uiManager.UpdateBombs(bombs);
+      //_uiManager.UpdateBombs(bombs);
       _uiManager.UpdateScore(score);
       //_uiManager.UpdateMusic()
     }

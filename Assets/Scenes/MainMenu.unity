@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -660,6 +660,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 417203794}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &494577701 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7788676435711780252, guid: a91f233172343d14991b7b404e8f5158,
+    type: 3}
+  m_PrefabInstance: {fileID: 2047499744}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &692731569
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -908,6 +914,7 @@ GameObject:
   m_Component:
   - component: {fileID: 967107052}
   - component: {fileID: 967107053}
+  - component: {fileID: 967107054}
   m_Layer: 0
   m_Name: CodeHolder
   m_TagString: Untagged
@@ -941,6 +948,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a3642a79b4bf034f9bd3c3ca89b10f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &967107054
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 967107051}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd72f4cd70d06542abb50ff1bd2325c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlayingMusic: 1
+  playList:
+  - {fileID: 8300000, guid: c9a47879ba5113a439415042b4291fe6, type: 3}
+  currentSongPlaying: {fileID: 0}
+  musicSource: {fileID: 494577701}
 --- !u!1001 &982872935
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2385,6 +2409,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05a7f29456701c74aa5a6f94153b6d78, type: 3}
+--- !u!1001 &2047499744
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569298, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7788676436410569299, guid: a91f233172343d14991b7b404e8f5158,
+        type: 3}
+      propertyPath: m_Name
+      value: Music
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a91f233172343d14991b7b404e8f5158, type: 3}
 --- !u!1001 &5725207566394952571
 PrefabInstance:
   m_ObjectHideFlags: 0

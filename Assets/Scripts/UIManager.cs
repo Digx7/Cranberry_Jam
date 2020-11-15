@@ -12,8 +12,8 @@ public class UIManager : MonoBehaviour
                                              musicTMP;
     [SerializeField] private const string SCORETEXT = "Score : ",
                                           LIVESTEXT = "Lives : ",
-                                          BOMBSTEXT = "Bombs : ",
-                                          MUSICTEXT = "Music : ";
+                                          BOMBSTEXT = "",
+                                          MUSICTEXT = "";
 
     [SerializeField] private GameObject PlayUi,
                                         GameOverUi;
