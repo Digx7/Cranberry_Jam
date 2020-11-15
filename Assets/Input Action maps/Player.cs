@@ -169,6 +169,33 @@ public class @Player : IInputActionCollection, IDisposable
                     ""isPartOfComposite"": true
                 }
             ]
+        },
+        {
+            ""name"": ""Menus"",
+            ""id"": ""b3d2b32a-45af-4824-ac11-c234e1c63fc4"",
+            ""actions"": [
+                {
+                    ""name"": ""Scroll"",
+                    ""type"": ""Value"",
+                    ""id"": ""cc556658-72e6-4f9a-9ba5-25eacd20f4ff"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""fa0c6be0-4e94-4a37-a21f-dfd64afd2bc8"",
+                    ""path"": ""<Gamepad>/leftStick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Scroll"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": []
@@ -177,6 +204,9 @@ public class @Player : IInputActionCollection, IDisposable
         m_Main = asset.FindActionMap("Main", throwIfNotFound: true);
         m_Main_MovePlayer01 = m_Main.FindAction("Move Player 01", throwIfNotFound: true);
         m_Main_MovePlayer02 = m_Main.FindAction("Move Player 02", throwIfNotFound: true);
+        // Menus
+        m_Menus = asset.FindActionMap("Menus", throwIfNotFound: true);
+        m_Menus_Scroll = m_Menus.FindAction("Scroll", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -263,9 +293,46 @@ public class @Player : IInputActionCollection, IDisposable
         }
     }
     public MainActions @Main => new MainActions(this);
+
+    // Menus
+    private readonly InputActionMap m_Menus;
+    private IMenusActions m_MenusActionsCallbackInterface;
+    private readonly InputAction m_Menus_Scroll;
+    public struct MenusActions
+    {
+        private @Player m_Wrapper;
+        public MenusActions(@Player wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Scroll => m_Wrapper.m_Menus_Scroll;
+        public InputActionMap Get() { return m_Wrapper.m_Menus; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(MenusActions set) { return set.Get(); }
+        public void SetCallbacks(IMenusActions instance)
+        {
+            if (m_Wrapper.m_MenusActionsCallbackInterface != null)
+            {
+                @Scroll.started -= m_Wrapper.m_MenusActionsCallbackInterface.OnScroll;
+                @Scroll.performed -= m_Wrapper.m_MenusActionsCallbackInterface.OnScroll;
+                @Scroll.canceled -= m_Wrapper.m_MenusActionsCallbackInterface.OnScroll;
+            }
+            m_Wrapper.m_MenusActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Scroll.started += instance.OnScroll;
+                @Scroll.performed += instance.OnScroll;
+                @Scroll.canceled += instance.OnScroll;
+            }
+        }
+    }
+    public MenusActions @Menus => new MenusActions(this);
     public interface IMainActions
     {
         void OnMovePlayer01(InputAction.CallbackContext context);
         void OnMovePlayer02(InputAction.CallbackContext context);
+    }
+    public interface IMenusActions
+    {
+        void OnScroll(InputAction.CallbackContext context);
     }
 }

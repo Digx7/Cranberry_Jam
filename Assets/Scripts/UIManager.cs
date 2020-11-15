@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -17,6 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject PlayUi,
                                         GameOverUi;
 
+    // -----------------------------
     public void UpdateScore(string input){
       scoreTMP.text = SCORETEXT + input;
     }
@@ -61,5 +63,14 @@ public class UIManager : MonoBehaviour
     public void SetGameOverMode(){
       PlayUi.SetActive(false);
       GameOverUi.SetActive(true);
+    }
+
+    // ------------------------------------
+    public void OnClickExit(){
+      SceneManager.LoadScene("MainMenu");
+    }
+
+    public void OnClickRetry(){
+      SceneManager.LoadScene("Main");
     }
 }

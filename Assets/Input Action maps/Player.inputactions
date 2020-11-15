@@ -156,6 +156,33 @@
                     "isPartOfComposite": true
                 }
             ]
+        },
+        {
+            "name": "Menus",
+            "id": "b3d2b32a-45af-4824-ac11-c234e1c63fc4",
+            "actions": [
+                {
+                    "name": "Scroll",
+                    "type": "Value",
+                    "id": "cc556658-72e6-4f9a-9ba5-25eacd20f4ff",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "fa0c6be0-4e94-4a37-a21f-dfd64afd2bc8",
+                    "path": "<Gamepad>/leftStick",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Scroll",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
         }
     ],
     "controlSchemes": []

@@ -18,6 +18,8 @@ public class GameManager : MonoBehaviour
       if(_uiManager == null) _uiManager = gameObject.GetComponent<UIManager>();
 
       UpdateUI();
+
+      _timeManager.UnFreezeTime();
     }
 
     public void IncrementScore(){
