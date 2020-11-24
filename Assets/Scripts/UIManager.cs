@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
+    // --- PlayUi---
     [SerializeField] private TextMeshProUGUI scoreTMP,
                                              livesTMP,
                                              bombsTMP,
@@ -15,16 +16,25 @@ public class UIManager : MonoBehaviour
                                           BOMBSTEXT = "",
                                           MUSICTEXT = "";
 
+    // --- GameOverUi---
+    [SerializeField] private TextMeshProUGUI yourScoreTMP,
+                                             highScoreTMP;
+    [SerializeField] private const string YOURSCORETEXT = "Score : ",
+                                          HIGHSCORETEXT = "Best : ";
+
     [SerializeField] private GameObject PlayUi,
-                                        GameOverUi;
+                                        GameOverUi,
+                                        SaveScore;
 
     // ---Score--------------------------
     public void UpdateScore(string input){
       scoreTMP.text = SCORETEXT + input;
+      yourScoreTMP.text = YOURSCORETEXT + input;
     }
 
     public void UpdateScore(int input){
       scoreTMP.text = SCORETEXT + input;
+      yourScoreTMP.text = YOURSCORETEXT + input;
     }
 
     // ---Lives----------
@@ -58,16 +68,19 @@ public class UIManager : MonoBehaviour
     public void SetPlayMode(){
       PlayUi.SetActive(true);
       GameOverUi.SetActive(false);
+      SaveScore.SetActive(false);
     }
 
     public void SetGameOverMode(){
-      PlayUi.SetActive(true);
+      PlayUi.SetActive(false);
       GameOverUi.SetActive(true);
+      SaveScore.SetActive(false);
     }
 
     public void SetSaveScoreMode(){
       PlayUi.SetActive(false);
       GameOverUi.SetActive(false);
+      SaveScore.SetActive(true);
     }
 
     // ---OnClick---------------------------------

@@ -22,4 +22,12 @@ public class Leaderboard
     public Leaderboard(){
 
     }
+
+    public void addNewScoreToLeaderboard(Score newScore){
+      _leaderboard.Add(newScore);
+    }
+
+    public void sortLeaderboard(){
+      _leaderboard.Sort();
+    }
 }

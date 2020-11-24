@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AllEnemyManager _allEnemyManager;
     [SerializeField] private UIManager _uiManager;
 
+
     // --- Update/Awake ---
 
     public void Awake(){
