@@ -18,7 +18,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject PlayUi,
                                         GameOverUi;
 
-    // -----------------------------
+    // ---Score--------------------------
     public void UpdateScore(string input){
       scoreTMP.text = SCORETEXT + input;
     }
@@ -27,7 +27,7 @@ public class UIManager : MonoBehaviour
       scoreTMP.text = SCORETEXT + input;
     }
 
-    // -------------
+    // ---Lives----------
     public void UpdateLives(string input){
       livesTMP.text = LIVESTEXT + input;
     }
@@ -36,7 +36,7 @@ public class UIManager : MonoBehaviour
       livesTMP.text = LIVESTEXT + input;
     }
 
-    // -------------
+    // ---Bombs--------
     public void UpdateBombs(string input){
       bombsTMP.text = BOMBSTEXT + input;
     }
@@ -45,7 +45,7 @@ public class UIManager : MonoBehaviour
       bombsTMP.text = BOMBSTEXT + input;
     }
 
-    // ------------
+    // ---Music---------
     public void UpdateMusic(string input){
       musicTMP.text = MUSICTEXT + input;
     }
@@ -54,23 +54,32 @@ public class UIManager : MonoBehaviour
       musicTMP.text = MUSICTEXT + input;
     }
 
-    // ------------------------------------
+    // ---SetMode---------------------------------
     public void SetPlayMode(){
       PlayUi.SetActive(true);
       GameOverUi.SetActive(false);
     }
 
     public void SetGameOverMode(){
-      PlayUi.SetActive(false);
+      PlayUi.SetActive(true);
       GameOverUi.SetActive(true);
     }
 
-    // ------------------------------------
+    public void SetSaveScoreMode(){
+      PlayUi.SetActive(false);
+      GameOverUi.SetActive(false);
+    }
+
+    // ---OnClick---------------------------------
     public void OnClickExit(){
       SceneManager.LoadScene("MainMenu");
     }
 
     public void OnClickRetry(){
       SceneManager.LoadScene("Main");
+    }
+
+    public void OnClickSaveScore(){
+      SetSaveScoreMode();
     }
 }

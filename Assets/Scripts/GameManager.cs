@@ -12,6 +12,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AllEnemyManager _allEnemyManager;
     [SerializeField] private UIManager _uiManager;
 
+    // --- Update/Awake ---
+
     public void Awake(){
       if(_timeManager == null) _timeManager = gameObject.GetComponent<TimeManager>();
       if(_allEnemyManager == null) _allEnemyManager = gameObject.GetComponent<AllEnemyManager>();
@@ -21,6 +23,8 @@ public class GameManager : MonoBehaviour
 
       _timeManager.UnFreezeTime();
     }
+
+    // --- Score ---
 
     public void IncrementScore(){
       score++;
@@ -37,6 +41,8 @@ public class GameManager : MonoBehaviour
       UpdateUI();
     }
 
+    // --- Lives ---
+
     public void IncrementLives(){
       lives++;
       UpdateUI();
@@ -51,6 +57,8 @@ public class GameManager : MonoBehaviour
       lives = input;
       UpdateUI();
     }
+
+    // --- Bombs ---
 
     public void IncrementBombs(){
       bombs++;
@@ -67,6 +75,8 @@ public class GameManager : MonoBehaviour
       UpdateUI();
     }
 
+    // --- General UI ---
+
     public void UpdateUI(){
       _uiManager.UpdateLives(lives);
       //_uiManager.UpdateBombs(bombs);
@@ -74,11 +84,19 @@ public class GameManager : MonoBehaviour
       //_uiManager.UpdateMusic()
     }
 
+    // --- Game States ---
+
     // What happens when the player loses all lives
     public void GameOver(){
       _timeManager.FreezeTime();
       _uiManager.SetGameOverMode();
+
+      // Should ask if player wants to save score
+      // If so they sould save the score
+      // If not do nothing
     }
+
+    // --- Game Events ---
 
     // What happens when the player loses One life
     public void PlayerLoseALife(){
