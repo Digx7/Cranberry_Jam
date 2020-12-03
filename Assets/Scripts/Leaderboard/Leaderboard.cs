@@ -15,12 +15,20 @@ public class Leaderboard
       return _leaderboard;
     }
 
+    public Score getHighScoreOnLeaderBoard(){
+      return _leaderboard[0];
+    }
+
+    public Score getScoreOnLeaderBoard(int index){
+      return _leaderboard[index];
+    }
+
     public Leaderboard(List<Score> input){
       setLeaderboard(input);
     }
 
     public Leaderboard(){
-
+      _leaderboard = new List<Score>();
     }
 
     public void addNewScoreToLeaderboard(Score newScore){

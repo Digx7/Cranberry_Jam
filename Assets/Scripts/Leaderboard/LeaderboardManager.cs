@@ -41,14 +41,19 @@ public static class LeaderboardManager
     public static void saveScore(string name, float value){
       //if (isThisANewHighScore(input)) setHighestScore(input);
 
-      Score newScore = new Score(name, value);
+      Score _score = new Score(name, value);
 
       Leaderboard currentLeaderboard = loadLeaderboard();
 
-      currentLeaderboard.addNewScoreToLeaderboard(newScore);
+      currentLeaderboard.addNewScoreToLeaderboard(_score);
       currentLeaderboard.sortLeaderboard();
 
       saveLeaderboard(currentLeaderboard);
+    }
+
+    public static Score LoadHighScore(){
+      if(isThereASavedLeaderboard()) return loadLeaderboard().getHighScoreOnLeaderBoard();
+      else return new Score();
     }
 
     /*public Score loadScore(int index){
@@ -105,7 +110,7 @@ public static class LeaderboardManager
         return _leaderboard;
       }else{
         Debug.Log("There is no save data at : " + path);
-        return null;
+        return new Leaderboard();
       }
     }
 }

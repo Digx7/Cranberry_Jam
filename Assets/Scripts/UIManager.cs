@@ -18,7 +18,9 @@ public class UIManager : MonoBehaviour
 
     // --- GameOverUi---
     [SerializeField] private TextMeshProUGUI yourScoreTMP,
-                                             highScoreTMP;
+                                             highScoreTMP,
+                                             _yourScoreTMP,
+                                             _highScoreTMP;
     [SerializeField] private const string YOURSCORETEXT = "Score : ",
                                           HIGHSCORETEXT = "Best : ";
 
@@ -30,11 +32,29 @@ public class UIManager : MonoBehaviour
     public void UpdateScore(string input){
       scoreTMP.text = SCORETEXT + input;
       yourScoreTMP.text = YOURSCORETEXT + input;
+      _yourScoreTMP.text = YOURSCORETEXT + input;
     }
 
     public void UpdateScore(int input){
       scoreTMP.text = SCORETEXT + input;
       yourScoreTMP.text = YOURSCORETEXT + input;
+      _yourScoreTMP.text = YOURSCORETEXT + input;
+    }
+
+    // ---HighScore----------------------
+    public void UpdateHighScore(string input){
+      highScoreTMP.text = HIGHSCORETEXT + input;
+      _highScoreTMP.text = HIGHSCORETEXT + input;
+    }
+
+    public void UpdateHighScore(int input){
+      highScoreTMP.text = HIGHSCORETEXT + input;
+      _highScoreTMP.text = HIGHSCORETEXT + input;
+    }
+
+    public void UpdateHighScore(float input){
+      highScoreTMP.text = HIGHSCORETEXT + input;
+      _highScoreTMP.text = HIGHSCORETEXT + input;
     }
 
     // ---Lives----------

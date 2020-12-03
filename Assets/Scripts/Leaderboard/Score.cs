@@ -4,7 +4,7 @@ using UnityEngine;
 
 
 [System.Serializable]
-public class Score
+public class Score : IComparable
 {
    [SerializeField] private string initials;
    [SerializeField] private float score;
@@ -33,5 +33,15 @@ public class Score
    public Score(){
      initials = "AAA";
      score = 0;
+   }
+
+   public int ComapareTo(Score _score){
+     if (_score == null) return 1;
+
+    Score otherScore = _score as Score;
+    if (otherScore != null)
+        return this.score.CompareTo(otherScore.getScore());
+    else
+       throw new ArgumentException("Object is not a Temperature");
    }
 }

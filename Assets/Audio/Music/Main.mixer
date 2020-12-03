@@ -121,8 +121,6 @@ AudioMixerController:
   m_AudioMixerGroupViews:
   - guids:
     - 4bc3651cc46b276448c959485b9b69c5
-    - 1149aff0cbcbf104b9ef2e14d72bb37e
-    - c3d228dae9a7fbf459249ecbd0980d25
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
