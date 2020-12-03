@@ -1,10 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
 [System.Serializable]
-public class Score : IComparable
+public class Score : IComparable<Score>
 {
    [SerializeField] private string initials;
    [SerializeField] private float score;
@@ -35,13 +36,13 @@ public class Score : IComparable
      score = 0;
    }
 
-   public int ComapareTo(Score _score){
-     if (_score == null) return 1;
+   int IComparable<Score>.CompareTo(Score obj){
+      if (obj == null) return 1;
 
-    Score otherScore = _score as Score;
-    if (otherScore != null)
-        return this.score.CompareTo(otherScore.getScore());
-    else
-       throw new ArgumentException("Object is not a Temperature");
+      Score otherScore = obj as Score;
+      if (otherScore != null)
+          return otherScore.getScore().CompareTo(this.getScore());
+      else
+         throw new ArgumentException("Object is not a Score");
    }
 }

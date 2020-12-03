@@ -38,4 +38,8 @@ public class Leaderboard
     public void sortLeaderboard(){
       _leaderboard.Sort();
     }
+
+    public void erase(){
+      _leaderboard.Clear();
+    }
 }

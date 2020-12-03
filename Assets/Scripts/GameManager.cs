@@ -173,4 +173,8 @@ public class GameManager : MonoBehaviour
     public void LoadHighScore(){
       highScore = LeaderboardManager.LoadHighScore();
     }
+
+    public void DeleteSave(){
+      LeaderboardManager.deleteLeaderboard();
+    }
 }

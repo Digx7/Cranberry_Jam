@@ -82,17 +82,19 @@ public static class LeaderboardManager
     }
 
     public static void deleteLeaderboard(){
-      string path = Application.persistentDataPath + PATHNAME;
-      FileStream stream = new FileStream(path, FileMode.Truncate);
+      Leaderboard currentLeaderboard = loadLeaderboard();
 
-      stream.Close();
+      currentLeaderboard.erase();
     }
 
     public static bool isThereASavedLeaderboard(){
       string path = Application.persistentDataPath + PATHNAME;
-      if (File.Exists(path)){
+      FileStream stream = new FileStream(path, FileMode.Open);
+      if (File.Exists(path) && stream.Length > 0){
+        stream.Close();
         return true;
       } else {
+        stream.Close();
         return false;
       }
     }
