@@ -16,11 +16,17 @@ public class Leaderboard
     }
 
     public Score getHighScoreOnLeaderBoard(){
-      return _leaderboard[0];
+      return getScoreOnLeaderBoard(0);
     }
 
     public Score getScoreOnLeaderBoard(int index){
+      if(index <= _leaderboard.Count - 1)
       return _leaderboard[index];
+      else return new Score();
+    }
+
+    public int getCount(){
+      return _leaderboard.Count;
     }
 
     public Leaderboard(List<Score> input){

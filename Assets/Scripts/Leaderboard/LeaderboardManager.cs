@@ -85,6 +85,8 @@ public static class LeaderboardManager
       Leaderboard currentLeaderboard = loadLeaderboard();
 
       currentLeaderboard.erase();
+
+      saveLeaderboard(currentLeaderboard);
     }
 
     public static bool isThereASavedLeaderboard(){

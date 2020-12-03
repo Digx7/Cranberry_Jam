@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private int score;
     [SerializeField] private int lives;
     [SerializeField] private int bombs;
-    [SerializeField] private string initials;
+    [SerializeField] private string initials = "AAA";
     [SerializeField] private Score highScore;
 
     [SerializeField] private TimeManager _timeManager;
