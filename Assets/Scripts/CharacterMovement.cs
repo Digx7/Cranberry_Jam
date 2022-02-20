@@ -11,6 +11,8 @@ public class CharacterMovement : MonoBehaviour
       [SerializeField] private Rigidbody rb;
       [SerializeField] private float speed;
       [SerializeField] private bool isMoving;
+      [SerializeField] private bool dragAllowed;
+      [SerializeField] private Collider col;
 
     [Header ("Events --------------")]
       [SerializeField] private UnityEvent playerStartMoving;
@@ -18,6 +20,11 @@ public class CharacterMovement : MonoBehaviour
 
     public void Awake(){
       if(rb == null) rb = gameObject.GetComponent<Rigidbody>();
+      col = GetComponent<Collider>();
+    }
+
+    public void Update(){
+      DragAndDropPlayer();
     }
 
     // Move Playerr scripts
@@ -59,6 +66,30 @@ public class CharacterMovement : MonoBehaviour
         {
           playerStopMoving.Invoke();
           isMoving = false;
+        }
+      }
+    }
+
+    public void DragAndDropPlayer(){
+      if(Input.touchCount > 0){
+        Touch touch = Input.GetTouch(0);
+        Vector2 touchPosition = Camera.main.ScreenToWorldPoint(touch.position);
+
+        if(touch.phase == TouchPhase.Began){
+          Collider2D touchedCollider = Physics2D.OverlapPoint(touchPosition);
+          if (col == touchedCollider){
+            dragAllowed = true;
+          }
+        }
+
+        if(touch.phase == TouchPhase.Moved){
+          if (dragAllowed){
+            transform.position = new Vector2(touchPosition.x, touchPosition.y);
+          }
+        }
+
+        if(touch.phase == TouchPhase.Ended){
+          dragAllowed = false;
         }
       }
     }
